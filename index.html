@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Kondo - UC San Diego</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <h1>Jake Tamon Kondo<br> <span>UC San Deigo</span></h1>
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Cognitive Science Student</p>
+                <h1>Hi, I'm <span>Jake Tamon Kondo</span><br> from Orange County</h1>
+            </div>
+        </div>
+    </div>
+
+    <!----about---->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/headshot.jpg" alt="Picture of Jake Kondo">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="subtitle">About Me</h1>
+                    <p class="descp">Hello, my name is Jake Kondo and I am currently a student at Sixth College at the University of California, San Diego(UCSD)!
+                        I am studying Cognitive Science with specilization in Machine Learning(ML) and Nueral Computation and plan to recieve
+                        my Master's Degree ideally in Bioinformatics or Data Science. Upon graduation, I would like to work in the Data Science Field 
+                    as a Data Scientist or Bioinformatics Data Scientist, with the hopes of helping many people through the usage of Artifical Intelligence!<br></p>
+                
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming</span><br>C++, Python, SQL, WebDesign</li>
+                            <li><span>Data Science</span><br> Pandas, NumPy, SciKit</li>
+                            <li><span>Leadership</span><br>Student Government, Club Leader</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>Orange Coast College</span><br>Data Strutcures, Intermediate Programming</li>
+                            <li><span>Certificates</span><br> Data Analytics, Python, C++</li>
+                            <li><span>Projects</span><br>Personal Portfolio(this)</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>UC San Diego</span><br>2023 - 2025 B.S. Cognitive Science</li>
+                            <li><span>Orange Coast College</span><br> 2021 - 2023 A.S. Computer Science</li>
+                            <li><span>Costa Mesa High School</span><br>2017 - 2021 High School Diploma</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!----Contact---->
+     <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="subtitle">Contact Me</h1>
+                    <p><i class="fa-solid fa-envelope"></i> kondotamon@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> (949) 239-9056</p>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com/in/jakekondo"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/tamonkondo14"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/tamonnkonddo/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://open.spotify.com/user/soccertamon?si=5605eb19a41c4196"><i class="fa-brands fa-spotify"></i></a>
+                    </div>
+                    <a href="Jake Tamon Kondo's Resume (1).pdf" download class="btn btn2">Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form name=""submit-to-google-sheet>
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="text" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Jake Tamon Kondo. All rights reserved.</p>
+        </div>
+     </div>
+
+     <script src="https://kit.fontawesome.com/4af65f1276.js" crossorigin="anonymous"></script>
+
+    <script>
+        
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents")
+        function opentab(tabname) {
+            for(tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab")
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+    </script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbygUdR-S9G-2TRBtXz1K6f85oj6h1qmeEKayLd5ePhkCKQzeI4p9hX6iNJY4Na8wIfPPw/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+</body>
+</html>
